@@ -2,31 +2,54 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 >
 
-<f:loadBundle basename="application" var="msg" />
+<f:loadBundle basename="application" var="msg"/>
 
 <h:head>
-    <title><h:outputText value="#{msg.welcomeTitle}" /></title>
+<style>
+    .log-in-form {
+        border: 1px solid #cacaca;
+        padding: 1rem;
+        border-radius: 3px; }
+</style>
+    <title><h:outputText value="#{msg.welcomeTitle}"/></title>
 </h:head>
-
 <h:body>
-<f:view>
-    <h:form id="loginForm">
-        <p:panelGrid columns="2" rendered="#{!login.loggedIn}">
-            <p:inputText id="username" value="#{credentials.username}" placeholder="#{msg.username}"/>
-            <p:password id="password" value="#{credentials.password}" placeholder="#{msg.password}"/>
-        </p:panelGrid>
+    <h:outputScript library="js" name="foundation.min.js" />
+    <h:outputScript library="js" name="app.js" />
 
-        <p:commandButton value="Login" action="#{login.login}"
-                         rendered="#{!login.loggedIn}" />
-        <h:commandButton value="Logout" action="#{login.logout}"
-                         rendered="#{login.loggedIn}" />
-    </h:form>
-</f:view>
+    <h:outputStylesheet library="css" name="foundation.min.css"  />
+    <h:outputStylesheet library="css" name="app.css"  />
+    <f:view>
+        <div class="row">
+            <div class="medium-6 medium-centered large-4 large-centered columns">
+            <h:form id="loginForm">
+                <div class="row column log-in-form">
+                    <h4 class="text-center">Log in with you email account</h4>
+                    <label>Email
+                    <h:inputText id="username" value="#{credentials.username}"
+                                             p:placeholder="#{msg.username}"/>
+                    </label>
+
+                    <label>Password
+                    <h:inputSecret id="password" value="#{credentials.password}"
+                                               p:placeholder="#{msg.password}"/>
+                    </label>
+
+                        <h:commandButton styleClass="button expanded" value="Logout" action="#{login.logout}"
+                                         rendered="#{login.loggedIn}"/>
+                        <h:commandButton styleClass="button expanded" value="Login" action="#{login.login}"
+                                         rendered="#{!login.loggedIn}"/>
+                        <p>Already have an account? <a href="#">Login here</a></p>
+                </div>
+
+            </h:form>
+                </div>
+            </div>
+    </f:view>
 </h:body>
 </html>

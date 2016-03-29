@@ -1,16 +1,117 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
 >
 
-<div class="ui-fluid">
-    <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
+<f:loadBundle basename="application" var="msg"/>
 
-    </p:panelGrid>
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title><h:outputText value="#{msg.welcomeTitle}"/></title>
+</h:head>
+<h:body>
+
+    <!--<h:outputStylesheet library="css" name="foundation.min.css"/>-->
+    <!--<h:outputStylesheet library="css" name="responsive-tables.css"/>-->
+    <h:outputStylesheet library="css" name="app.css"/>
+
+    <!--<h:outputScript library="js" name="jquery.min.js"/>-->
+    <!--<h:outputScript library="js" name="foundation.min.js"/>-->
+    <!--<h:outputScript library="js" name="foundation.equalizer.js"/>-->
+    <!--<h:outputScript library="js" name="responsive-tables.js"/>-->
+    <h:outputScript library="js" name="app.js"/>
+    <f:view>
+
+
+                <h:form id="responsiveForm">
+                    <div class="row">
+                    <div class="large-12 columns">
+                    <h:dataTable styleClass="responsive" value="#{patient.patients}" var="patient">
+                        <h:column>#{patient.id}</h:column>
+                        <h:column>#{patient.type}</h:column>
+                        <h:column>#{patient.firstName}</h:column>
+                        <h:column>#{patient.surName}</h:column>
+                        <h:column>#{patient.age}</h:column>
+                    </h:dataTable>
 </div>
+                    </div>
+                    <div class="row">
+                    <div class="large-12 columns">
+                    <div id="equalizer1" class="row" data-equalizer="" data-equalize-on="small">
+                        <div class="small-12 large-2 columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+                        <div class="small-12 large-2  columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+                        <div class="small-12 large-2  columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+
+                        <div class="small-12 large-2  columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+                        <div class="small-12 large-2  columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+                        <div class="small-12 large-2 columns">
+                            <div class="callout" data-equalizer-watch="">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+                            </div>
+                        </div>
+                    </div>
+</div></div>
+
+                    <table class="responsive">
+                        <tr>
+                            <td>4897328473</td>
+                            <td>M</td>
+                            <td>firstName1</td>
+                            <td>surName1</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>4897328473</td>
+                            <td>P</td>
+                            <td>firstNamekfdjgfd1</td>
+                            <td>surNamefsdf1</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>4897328473</td>
+                            <td>M</td>
+                            <td>firfdsstName1</td>
+                            <td>surNamfdse1</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>485497328473</td>
+                            <td>P</td>
+                            <td>firstNamefdf1</td>
+                            <td>surNamsdfe1</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>4854397328473</td>
+                            <td>M</td>
+                            <td>ffgfdirstName1</td>
+                            <td>surNagfdhme1</td>
+                            <td>22</td>
+                        </tr>
+                    </table>
+                </h:form>
+
+    </f:view>
+</h:body>
 </html>
